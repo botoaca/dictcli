@@ -6,20 +6,24 @@ fn draw_box(s: String) {
     for line in s.lines() {
         len = len.max(line.len());
     }
-
-    for _i in 0..=len + 3 { print!("-"); }
+    
+    print!("┌");
+    for _i in 1..=len + 2 { print!("─"); }
+    print!("┐");
 
     for line in s.lines() {
-        print!("\n| ");
+        print!("\n│ ");
         print!("{}", line);
         if line.len() < len {
             for _i in 0..len - line.len() { print!(" "); }
         }
-        print!(" |");
+        print!(" │");
     }
     print!("\n");
-
-    for _i in 0..=len + 3 { print!("-"); }
+    
+    print!("└");
+    for _i in 0..=len + 1 { print!("─"); }
+    print!("┘");
 }
 
 fn main() {
